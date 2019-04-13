@@ -8,7 +8,7 @@
 mysqli_connect_error();
  }
  // Form the SQL query (an INSERT query)
- $sql="SELECT * FROM Persons WHERE username =='$_POST[firstname]' and password =='$_POST[password]' 
+ $sql="SELECT * FROM Persons WHERE username =='$_POST[username]' and password =='$_POST[password]'";
 
  $r = mysqli_query($con,$sql);
  if($r){  // if there is a valid result
@@ -20,7 +20,7 @@ mysqli_connect_error();
     }
  }
  else{ // if any input is incorrect or if it is not in the system
-    echo "Wrong username or password, or the account does not exist."  
+    echo "Wrong username or password, or the account does not exist.";
  }
     
  mysqli_close($con);
