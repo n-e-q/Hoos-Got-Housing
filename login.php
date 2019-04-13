@@ -8,9 +8,7 @@
 mysqli_connect_error();
  }
  // Form the SQL query (an INSERT query)
- $sql="SELECT * FROM Persons WHERE username ==(username) and password ==(password) 
- VALUES
- ('$_POST[username]','$_POST[password]')";
+ $sql="SELECT * FROM Persons WHERE username =='$_POST[firstname]' and password =='$_POST[password]' 
 
  $r = mysqli_query($con,$sql);
  if($r){  // if there is a valid result
