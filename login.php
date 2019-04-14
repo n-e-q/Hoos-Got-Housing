@@ -8,20 +8,17 @@
 mysqli_connect_error();
  }
  // Form the SQL query (an INSERT query)
- $sql="SELECT * FROM Persons WHERE username =='$_POST[username]' and password =='$_POST[password]'";
+ $sql="SELECT * FROM login WHERE username ='$_POST[username]' and password ='$_POST[password]'";
 
- $r = mysqli_query($con,$sql);
- if($r){  // if there is a valid result
-    if ($r['type']=="renter"){  //if it is a renter 
-        echo $r['name'] " , you have logined as a renter";
-    }
-    else{ // if it is a owner
-        echo $r['name'] " , you have logined as a owner";
-    }
+ $result = mysqli_query($con,$sql);
+ $r = mysqli_fetch_array($result);
+ if ($r){
+	 echo $r['name'];
+	 echo ", you have logined as a ";
+	 echo $r['type'];
  }
- else{ // if any input is incorrect or if it is not in the system
-    echo "Wrong username or password, or the account does not exist.";
- }
-    
+ else{
+	 echo "Wrong username or password, or the account does not exist.";
+ }   
  mysqli_close($con);
 ?>
