@@ -53,7 +53,7 @@
       <input type="radio" name="getup" value="wake up late" <?php if(isset($_POST['getup']) && $_POST['getup']=="wake up late") echo "checked='checked'"; ?>> Get Up Late
     </div> <br>
     <br>
-    <input type="submit" id="submission" value="Search" class="btn btn-default">
+    <input type="submit" id="submission" value="Search" class="btn btn-primary">
 
     <br>
     <br>
