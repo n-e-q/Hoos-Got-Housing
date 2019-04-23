@@ -11,7 +11,7 @@ if($stmt->prepare("select * from nearby where location_name like ?") or die(mysq
         $stmt->bind_param(s, $searchString);
         $stmt->execute();
         $stmt->bind_result($residency_address, $location_name, $location_address);
-        echo "<table class='table table-striped' border=1><th>residency_address</th><th>location_name</th><th>location_address</th>\n";
+        echo "<table class='table table-striped' border=1><th>Residency Address</th><th>Location Name</th><th>Location Address</th>\n";
         while($stmt->fetch()) {
                 echo "<tr><td>$residency_address</td><td>$location_name</td><td>$location_address</td></tr>";
         }
