@@ -7,7 +7,7 @@ function get_searchNumRes(){
 }
 
 function get_searchnearby(){
-    $( "#result" ).load( "./searchnearby.php" );
+    $( "#result" ).load( "./searchnearby.html" );
 }
 
 function get_searchAme(){
