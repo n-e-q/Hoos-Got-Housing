@@ -39,6 +39,18 @@ function sleepCheck() {
   }
 }
 
+$(document).ready(function () {
+  $('#btnConvert').click(function () {
+    $("<a />", {
+      "download": "roommate.json",
+      "href": "data:application/json," + encodeURIComponent(JSON.stringify(makeJsonFromTable('json')))
+    }).appendTo("body")
+      .click(function () {
+        $(this).remove()
+      })[0].click()
+  })
+})
+
 // $(document).ready(function () {
 //   $("#submission").click(function () {
 //     $.ajax({
