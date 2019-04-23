@@ -10,7 +10,7 @@
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
                 $stmt->bind_result($residency_address, $rent, $num_possible_residents, $num_current_residents, $num_room, $num_bed);
-                echo "<table border=1><th>residency_address</th><th>rent</th><th>num_possible_residents</th>
+                echo "<table class='table table-striped' border=1><th>residency_address</th><th>rent</th><th>num_possible_residents</th>
                 <th>num_current_residents</th><th>num_room</th><th>num_bed</th>\n";
                 while($stmt->fetch()) {
                         echo "<tr><td>$residency_address</td><td>$rent</td><td>$num_possible_residents</td>
