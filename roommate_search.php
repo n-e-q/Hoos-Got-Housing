@@ -16,7 +16,7 @@
 
 <body>
   <div class="container">
-  <h1> Roomate Search </h1>
+  <h1 style="text-align:center;"> Roomate Search </h1>
 
   <p id="instruction" style=<?php if(isset($_POST['gender']) || isset($_POST['occupation']) || isset($_POST['tidy']) || isset($_POST['sleep']) || isset($_POST['getup'])) echo 'visibility:hidden'; else echo 'visibility:visible'; ?>>Currently presents a list of all the renters in the database that are searching for roommates. Select the options you wish to filter your roommate by, then click search to narrow it down!</p>
 
