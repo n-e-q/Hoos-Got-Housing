@@ -8,6 +8,7 @@
   <script src="./js/jquery-1.6.2.min.js" type="text/javascript"></script>
   <script src="./js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
   <script src="./js/roommate_search.js" type="text/javascript"></script>
+  <script src='js/TableToJson.min.js'></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <title>Search Roommate</title>
 </head>
@@ -87,7 +88,7 @@
       WHERE roommate_searching = 1") or die(mysqli_error($db))) {
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
           </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -102,12 +103,12 @@
         $stmt->bind_param('s', $gender);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
-      while($stmt->fetch()) {
-        echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
-      }
-      echo "</tbody></table>";
+        while($stmt->fetch()) {
+          echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
+        }
+        echo "</tbody></table>";
         $stmt->close();
       }
     }
@@ -119,7 +120,7 @@
         WHERE roommate_searching = 1") or die(mysqli_error($db))) {
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -134,7 +135,7 @@
         WHERE roommate_searching = 1") or die(mysqli_error($db))) {
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -152,7 +153,7 @@
         $stmt->bind_param('s', $tidy);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
           </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -168,7 +169,7 @@
         $stmt->bind_param('s', $sleep);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
           </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -185,7 +186,7 @@
         $stmt->bind_param('s', $getup);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
           </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -204,7 +205,7 @@
           $stmt->bind_param('s', $gender);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -220,7 +221,7 @@
           $stmt->bind_param('s', $gender);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -240,7 +241,7 @@
           $stmt->bind_param('ss', $gender, $tidy);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -256,7 +257,7 @@
           $stmt->bind_param('ss', $gender, $tidy);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -277,7 +278,7 @@
           $stmt->bind_param('sss', $gender, $tidy, $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -294,7 +295,7 @@
           $stmt->bind_param('sss', $gender, $tidy, $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -316,7 +317,7 @@
           $stmt->bind_param('ssss', $gender, $tidy, $sleep, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -335,7 +336,7 @@
           $stmt->bind_param('ssss', $gender, $tidy, $sleep, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -356,7 +357,7 @@
           $stmt->bind_param('sss', $gender, $tidy, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -373,7 +374,7 @@
           $stmt->bind_param('sss', $gender, $tidy, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -393,7 +394,7 @@
           $stmt->bind_param('ss', $gender, $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -409,7 +410,7 @@
           $stmt->bind_param('ss', $gender, $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -429,7 +430,7 @@
           $stmt->bind_param('ss', $gender, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -445,7 +446,7 @@
           $stmt->bind_param('ss', $gender, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -464,7 +465,7 @@
         $stmt->bind_param('ss', $gender, $tidy);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -482,7 +483,7 @@
         $stmt->bind_param('ss', $gender, $sleep);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -500,7 +501,7 @@
         $stmt->bind_param('ss', $gender, $getup);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -518,7 +519,7 @@
         $stmt->bind_param('sss', $gender, $tidy, $sleep);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -536,7 +537,7 @@
         $stmt->bind_param('sss', $gender, $tidy, $getup);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -554,7 +555,7 @@
         $stmt->bind_param('sss', $gender, $sleep, $getup);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -572,7 +573,7 @@
         $stmt->bind_param('ss', $sleep, $getup);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -590,7 +591,7 @@
         $stmt->bind_param('ss', $tidy, $getup);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -608,7 +609,7 @@
         $stmt->bind_param('ss', $tidy, $sleep);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -627,7 +628,7 @@
         $stmt->bind_param('sss', $tidy, $sleep, $getup);
         $stmt->execute();
         $stmt->bind_result($renter_name, $phone);
-        echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
+        echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th></tr>
         </thead><tbody>';
         while($stmt->fetch()) {
           echo "<tr><td>$renter_name</td><td>$phone</td></tr>";
@@ -646,7 +647,7 @@
           $stmt->bind_param('s', $tidy);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -662,7 +663,7 @@
           $stmt->bind_param('s', $tidy);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -683,7 +684,7 @@
           $stmt->bind_param('ss', $tidy, $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -700,7 +701,7 @@
           $stmt->bind_param('ss', $tidy, $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -722,7 +723,7 @@
           $stmt->bind_param('sss', $tidy, $sleep, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -741,7 +742,7 @@
           $stmt->bind_param('sss', $tidy, $sleep, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -762,7 +763,7 @@
           $stmt->bind_param('ss', $tidy, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -779,7 +780,7 @@
           $stmt->bind_param('ss', $tidy, $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -799,7 +800,7 @@
           $stmt->bind_param('s', $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -815,7 +816,7 @@
           $stmt->bind_param('s', $sleep);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -835,7 +836,7 @@
           $stmt->bind_param('s', $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $major, $year);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Major</th><th>Class Of</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$major</td><td>$year</td></tr>";
@@ -851,7 +852,7 @@
           $stmt->bind_param('s', $getup);
           $stmt->execute();
           $stmt->bind_result($renter_name, $phone, $job);
-          echo '<table class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
+          echo '<table id="json" class="table table-striped"><thead><tr><th>Name</th><th>Phone Number</th><th>Job</th></tr>
           </thead><tbody>';
           while($stmt->fetch()) {
             echo "<tr><td>$renter_name</td><td>$phone</td><td>$job</td></tr>";
@@ -863,7 +864,10 @@
     }
     
   ?>
+  <input type="button" id="btnConvert" value="Convert to JSON" class="btn btn-success">
 </div>
+
+
 </body>
 
 </html>
