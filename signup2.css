@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+label {
+	display: block;
+}
+.propertyinfo{
+	margin-bottom: 2em;
+	margin-left: 2em;
+}
+
+.propertyinfo input{
+	margin-bottom: 1em;
+}
