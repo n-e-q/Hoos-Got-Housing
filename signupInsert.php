@@ -15,7 +15,7 @@ if (mysqli_connect_errno())
 
 // Login info steps
 $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$loginInfoSQL = "INSERT INTO login (username, password, name, phone) VALUES ('$_POST[username]', '$hashed_password', '$_POST[fullname]', '$_POST[phone]')";
+$loginInfoSQL = "INSERT INTO login (username, password, name, phone, type) VALUES ('$_POST[username]', '$hashed_password', '$_POST[fullname]', '$_POST[phone]', '$_POST[type]')";
 if (!mysqli_query($con,$loginInfoSQL))
 {
     die('Error: ' . mysqli_error($con));

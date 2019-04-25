@@ -35,7 +35,7 @@
         	    echo "<input type='hidden' name='password' value='$_POST[password]' id='password' />";
         	    echo "<input type='hidden' name='phone' value='$_POST[phone]' id='phone' />";
         	    echo "<input type='hidden' name='type' value='renter' id='type' />";
-        	    echo "<input type='hidden' name='fullname' value='$fullName' id='renter_name' />";
+        	    echo "<input type='hidden' name='fullname' value='$fullName' id='fullname' />";
         	    echo "<input type='submit'>";
         	    echo "</form>";
         	    
@@ -65,7 +65,7 @@
         	    echo "<input type='hidden' name='password' value='$_POST[password]' id='password' />";
         	    echo "<input type='hidden' name='phone' value='$_POST[phone]' id='phone' />";
         	    echo "<input type='hidden' name='type' value='landlord' id='type' />";
-        	    echo "<input type='hidden' name='fullname' value='$fullName' id='renter_name' />";
+        	    echo "<input type='hidden' name='fullname' value='$fullName' id='fullname' />";
         	    
         	    echo "<input type='submit'>";
         	    echo "</form>";
