@@ -7,6 +7,12 @@ label {
 	margin-left: 2em;
 }
 
-.propertyinfo input{
+#renterinfo input{
 	margin-bottom: 1em;
+	width: 4em;
+}
+
+#renterinfo select{
+	margin-bottom: 1em;
+	width: 4em;
 }
