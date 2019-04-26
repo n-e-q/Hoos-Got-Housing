@@ -31,7 +31,10 @@ if($_POST['type'] == 'renter'){
     {
         die('Error: ' . mysqli_error($con));
     }
-    echo "1 record added to renter table<br>";
+    
+    header("Location: login.html");
+    exit;
+    
 }
 else if($_POST['type'] == 'landlord'){
     $landlordSQL = "INSERT INTO landlord VALUES('$_POST[fullname]','$_POST[phone]')";
@@ -39,7 +42,6 @@ else if($_POST['type'] == 'landlord'){
     {
         die('Error: ' . mysqli_error($con));
     }
-    echo "1 record added to landlord table<br>";
     
     // Insert residency owned SQL
     if($_POST['address'] != null){
@@ -49,21 +51,21 @@ else if($_POST['type'] == 'landlord'){
         {
             die('Error: ' . mysqli_error($con));
         }
-        echo "1 record added to residency<br>";
         
         $ownSQL = "INSERT INTO own VALUES('$_POST[fullname]','$_POST[address]')";
         if (!mysqli_query($con,$ownSQL))
         {
             die('Error: ' . mysqli_error($con));
         }
-        echo "1 record added to owned<br>";
         
         $resTypeSQL = "INSERT INTO " . $_POST['residency_type'] . " VALUES('$_POST[address]','$_POST[building_name]')";
         if (!mysqli_query($con,$resTypeSQL))
         {
             die('Error: ' . mysqli_error($con));
         }
-        echo "1 record added to " . $_POST['residency_type'] . "<br>";
+        
+        header("Location: login.html");
+        exit;
     }
     
 }
