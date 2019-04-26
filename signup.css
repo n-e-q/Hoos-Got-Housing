@@ -1,5 +1,10 @@
 @charset "ISO-8859-1";
 
+body {	
+	font-family: "Tahoma";
+	text-align: center;
+}
+
 #signupform {
 	display: inline-block;
 }
@@ -8,3 +13,21 @@ label {
 	display: inline-block;
 	width: 10em;
 }
+
+select{
+	width: 13em;
+}
+
+div {
+	margin-bottom: 1em;
+}
+
+
+/*input[type=submit]{
+	background-color: blue; 
+  	color: white; 
+  	border: none;
+  	padding: 1%;
+  	-webkit-transition-duration: 0.4s;
+  	transition-duration: 0.4s;
+}*/

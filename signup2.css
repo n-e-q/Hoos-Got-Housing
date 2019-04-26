@@ -1,18 +1,47 @@
 @charset "ISO-8859-1";
+
+body {	
+	font-family: "Tahoma";
+	text-align: center;
+}
+
 label {
 	display: block;
+	width: 20em;
+	text-align: left;
 }
 .propertyinfo{
 	margin-bottom: 2em;
 	margin-left: 2em;
 }
 
-#renterinfo input{
-	margin-bottom: 1em;
+.propertyinfo input[type=text]{
+	width: 15em;
+}
+
+.propertyinfo select{
+	width: 15em;
+}
+
+#renterinfo input[type=text]{
 	width: 4em;
 }
 
 #renterinfo select{
+	width: 4em;
+}
+
+div{
+	margin-bottom: 1em;
+}
+
+/*#renterinfo input{
 	margin-bottom: 1em;
 	width: 4em;
 }
+
+
+#renterinfo select{
+	margin-bottom: 1em;
+	width: 4em;
+}*/

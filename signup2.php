@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
 <link rel="stylesheet" href="signup2.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
     <body>
@@ -22,11 +23,11 @@
                                                         <option value='female'>Female</option>
                                                         <option value='other'>Other</option>
                                                   </select></div>";
-        	    echo "<div><label>Are you a student?:</label> <select name='is_student' id='is_student'>
+        	    echo "<div><label>Are you a student?</label> <select name='is_student' id='is_student'>
                                                         <option value='1'>Yes</option>
                                                         <option value='0'>No</option>
                                                   </select></div>";
-        	    echo "<div><label>Are you currently searching for a roommate?:</label> <select name='roommate_searching' id='roommate_searching'>
+        	    echo "<div><label>Are you currently searching for a roommate?</label> <select name='roommate_searching' id='roommate_searching'>
                                                                                       		<option value='1'>Yes</option>
                                                                                       		<option value='0'>No</option>
                                                                                       	</select></div>";
@@ -36,7 +37,7 @@
         	    echo "<input type='hidden' name='phone' value='$_POST[phone]' id='phone' />";
         	    echo "<input type='hidden' name='type' value='renter' id='type' />";
         	    echo "<input type='hidden' name='fullname' value='$fullName' id='fullname' />";
-        	    echo "<input type='submit'>";
+        	    echo "<input type='submit' class='btn btn-primary'>";
         	    echo "</form>";
         	    
         	}
@@ -44,7 +45,7 @@
         	    echo "Please add the information of one of your properties (others can be added later in your profile).<br>";
         	    echo "<form id='propertyForm' action='signupInsert.php' method='post'>";
         	    
-        	        echo "<div>Property #</div>";
+
         	        echo "<div class='propertyinfo'><div><label>Address:</label> <input type='text' name='address'></div>";
         	        echo "<div><label>Building Name:</label> <input type='text' name='building_name'></div>";
         	        
@@ -67,7 +68,7 @@
         	    echo "<input type='hidden' name='type' value='landlord' id='type' />";
         	    echo "<input type='hidden' name='fullname' value='$fullName' id='fullname' />";
         	    
-        	    echo "<input type='submit'>";
+        	    echo "<input type='submit' class='btn btn-primary'>";
         	    echo "</form>";
         	}
         	else{
